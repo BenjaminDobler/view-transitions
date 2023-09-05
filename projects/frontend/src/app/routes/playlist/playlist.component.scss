@@ -1,0 +1,24 @@
+.track-grid {
+    height: 55px;
+    border-radius: 6px;
+    grid-gap: 16px;
+    display: grid;
+    padding: 0 16px;
+    grid-template-columns: 16px [index] 16px [first] 4fr [last] minmax(120px,1fr);
+
+    .cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &:hover {
+        background: #000;
+    }
+}
+
+.playlist-header-img {
+    width: 250px;
+    height: 250px;
+    view-transition-name: var(--playlist-shared-transition);
+}

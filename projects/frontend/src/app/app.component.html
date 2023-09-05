@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="sidebar"><div [routerLink]="['/home']">Home</div><div [routerLink]="['/search']">Search</div><button (click)="navigate(['home'])">back</button></div>
+  <div class="header">
+
+
+    <ng-container *ngIf="store.user | async as user;else loggedOut">
+      <div>{{ user.display_name }}</div>
+    </ng-container>
+
+    <ng-template #loggedOut>
+    </ng-template>
+
+  </div>
+  <div class="main"><router-outlet></router-outlet></div>
+  <div class="footer"><player></player></div>
+</div>

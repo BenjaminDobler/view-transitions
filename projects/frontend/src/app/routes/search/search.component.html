@@ -1,0 +1,18 @@
+<input #tx type="text" (keyup)="search(tx.value)" />
+
+<div *ngIf="store.searchResult | async as searchResult">
+  <carousel
+    [label]="'Albums'"
+    [type]="'search-album'"
+    [items]="searchResult.albums.items"
+  ></carousel>
+</div>
+
+
+<div *ngIf="store.searchResult | async as searchResult">
+    <carousel
+      [label]="'Artists'"
+      [type]="'artist'"
+      [items]="searchResult.artists.items"
+    ></carousel>
+  </div>

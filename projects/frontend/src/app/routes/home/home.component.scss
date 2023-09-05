@@ -1,0 +1,23 @@
+
+
+
+:host {
+    overflow: hidden;
+}
+
+.artist-container,
+.track-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+img {
+    width: 220px;
+    height: 220px;
+}
+
+carousel {
+    margin-bottom: 30px;
+}
+

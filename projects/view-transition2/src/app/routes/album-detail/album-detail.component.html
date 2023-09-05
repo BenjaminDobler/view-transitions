@@ -1,0 +1,69 @@
+<div *ngIf="store.album | async as album">
+  <div class="albums" *ngIf="albums | async as artistAlbums">
+    <div
+      class="album-item"
+      *ngFor="let album of artistAlbums.items; let i = index"
+    >
+      <!-- <img class="album-image" [src]="album.images[1].url" /> -->
+      <div
+        class="square album-image"
+        [style]="{
+          'background-image': 'url(' + album.images[1].url + ')',
+          'view-transition-name': 'transition-' + album.id
+        }"
+      ></div>
+      <div class="album-name">{{ album.name }}</div>
+    </div>
+  </div>
+
+  <div
+    style="
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    "
+  >
+    <img
+      (click)="navigateBack()"
+      [src]="album?.images?.[0]?.url"
+      class="album-image album-image_large"
+      [style]="{
+        'view-transition-name': 'transition-' + album.id
+      }"
+    />
+
+    <div
+      style="
+        view-transition-name: info;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        padding: 30px;
+      "
+    >
+      <div>{{ album.name }}</div>
+      <div>{{ album.label }}</div>
+
+      <div>{{ album.release_date }}</div>
+
+      <div [routerLink]="['/artist', album?.artists?.[0]?.id]">
+        {{ album?.artists?.[0]?.name }}
+      </div>
+
+      <div
+        class="track-grid"
+        style="display: flex;width: 300px;"
+        (click)="store.playTrack2(track.id)"
+        *ngFor="let track of album.tracks?.items"
+      >
+        <div class="cell">{{ track.track_number }}</div>
+        <div>{{ track.name }}</div>
+
+        
+      </div>
+
+    </div>
+  </div>
+</div>

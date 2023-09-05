@@ -1,0 +1,11 @@
+<ul #list>
+  <li (click)="removeItem(item)"
+  class="incoming"
+    *ngFor="let item of items;let i = index"
+    [style]="{ 'view-transition-name': 'list-item-' + i }"
+  >
+    {{ item }}
+  </li>
+</ul>
+
+<button (click)="addItem()">Add Item</button>

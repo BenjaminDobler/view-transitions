@@ -1,0 +1,17 @@
+<div class="albums" *ngIf="store.artistAlbums | async as artistAlbums">
+  <div
+    class="album-item"
+    *ngFor="let album of artistAlbums.items; let i = index"
+  >
+    <!-- <img class="album-image" [src]="album.images[1].url" /> -->
+    <div
+      (click)="selectAlbum(album)"
+      class="square album-image"
+      [style]="{
+        'background-image': 'url(' + album.images[1].url + ')',
+        'view-transition-name': 'transition-' + album.id
+      }"
+    ></div>
+    <div class="album-name">{{ album.name }}</div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+.add-button {
+  view-transition-name: add-button;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 5px;
+  background: #232323;
+  color: #ededed;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  width: 400px;
+  transform-origin: center center;
+}
+
+::view-transition-old(outgoing) {
+  z-index: 1000;
+  animation: 300ms outgoing both;
+}
+
+::view-transition-new(incoming) {
+  z-index: 1000;
+  animation: 3000ms added both;
+}
+
+@keyframes outgoing {
+  0% {
+    translate: 0 0;
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    translate: 100px 0;
+    scale: 1.5;
+    opacity: 0;
+  }
+}
+
+@keyframes incoming {
+  0% {
+    translate: -100px 0;
+    scale: 1.5;
+    opacity: 0;
+  }
+  100% {
+    translate: 0 0;
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.incoming {
+  view-transition-name: added !important;
+}

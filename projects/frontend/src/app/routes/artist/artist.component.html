@@ -1,0 +1,36 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  "
+  *ngIf="store.artist | async as artist"
+>
+  <div>{{ artist.name }}</div>
+  <img class="artist-image" [src]="artist.images[0].url" />
+</div>
+
+<div *ngIf="store.artistTopTracks | async as artistTopTracks">
+  <carousel
+    [label]="'Top Tracks'"
+    [type]="'track'"
+    [items]="artistTopTracks.tracks"
+  ></carousel>
+</div>
+
+<div *ngIf="store.artistAlbums | async as artistAlbums">
+  <carousel
+    [label]="'Albums'"
+    [type]="'search-album'"
+    [items]="artistAlbums.items"
+  ></carousel>
+</div>
+
+<div *ngIf="store.artistRelatedArtists | async as relatedArtists">
+  <carousel
+    [label]="'Top Artists'"
+    [type]="'artist'"
+    [items]="relatedArtists.artists"
+  ></carousel>
+</div>

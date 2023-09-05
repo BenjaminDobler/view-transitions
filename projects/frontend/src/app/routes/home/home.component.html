@@ -1,0 +1,41 @@
+
+
+<div
+  style="margin-bottom: 30px"
+  *ngIf="store.featuredPlaylist | async as featuredPlaylist"
+>
+  <carousel
+    (select)="navigate($event)"
+    [identifier]="'playlist'"
+    [label]="featuredPlaylist.message"
+    [type]="'playlist'"
+    [items]="featuredPlaylist.playlists.items"
+  ></carousel>
+</div>
+
+<div
+  style="margin-bottom: 30px"
+  *ngIf="store.userTopArtists | async as topArtists"
+>
+  <carousel
+    [identifier]="'artist'"
+    (select)="navigate($event)"
+    [label]="'Top Artists'"
+    [type]="'artist'"
+    [items]="topArtists.items"
+  ></carousel>
+</div>
+
+
+<div
+  style="margin-bottom: 30px"
+  *ngIf="store.recentTracks | async as recentTracks"
+>
+  <carousel
+    [identifier]="'album'"
+    (select)="navigate($event)"
+    [label]="'Last Tracks'"
+    [type]="'album'"
+    [items]="recentTracks.items"
+  ></carousel>
+</div>

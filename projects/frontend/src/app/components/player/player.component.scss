@@ -1,0 +1,70 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.next-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d4d4d;
+  color: #000;
+}
+
+.play-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d4d4d;
+  color: #000;
+}
+
+
+.pause-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4d4d4d;
+    color: #000;
+  }
+
+.previous-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d4d4d;
+  color: #000;
+}
+
+.controls-container {
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}

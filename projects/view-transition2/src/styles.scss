@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  --album-cover: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background: #000;
+}
+
+::view-transition-group(transition-1cJEPzLBLME22ZUra16HT2) {
+  z-index: 1000;
+  animation-duration: 690ms;
+}
+
+::view-transition-group(root) {
+    animation-delay: 2900ms;
+  }
+
+::view-transition-new(info) {
+  z-index: 9999;
+  animation-delay: 500ms;
+  animation-duration: 400ms;
+  animation-name: info-enter;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+::view-transition-old(info) {
+    z-index: 9999;
+    animation-duration: 400ms;
+    animation-name: info-leave;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  }
+
+  
+@keyframes info-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes info-leave {
+    from {
+      opacity: 1;
+      scale: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      scale: 0.5;
+      transform: translateX(-100%);
+    }
+  }

@@ -1,0 +1,73 @@
+<div style="font-weight: 600;font-size: 24px;margin-bottom: 10px">{{ label }}</div>
+<div class="track-container">
+  <ng-container *ngIf="type === 'album'">
+    <div class="item" *ngFor="let item of items; let i = index">
+      <div
+        (mouseover)="setAlbumTransitionName('transition-album' + i)"
+        [style]="{
+          'background-image': 'url(' + item.track.album.images[1].url + ')',
+          'view-transition-name': 'transition-album' + i
+        }"
+        class="square image"
+        (click)="select.emit(['/album', item.track.album.id])"
+      ></div>
+
+      {{ item.track.name }}
+      {{ item.track.artists[0]?.name }}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type === 'search-album'">
+    <div class="item" *ngFor="let item of items; let i = index">
+      <div
+        (mouseover)="setAlbumTransitionName('transition-search-album' + i)"
+        (click)="select.emit(['/album', item.id])"
+        [style]="{
+          'background-image': 'url(' + item.images[1].url + ')',
+          'view-transition-name': 'transition-album' + i
+        }"
+        class="square image"
+      ></div>
+
+      {{ item.name }}
+      {{ item.artists[0]?.name }}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type === 'artist'">
+    <div style="display: flex;flex-direction: column;align-items: center;" class="item" *ngFor="let item of items; let i = index">
+      <div
+        (mouseover)="setAlbumTransitionName('transition-artist-'+ identifier + i)"
+        (click)="select.emit(['/artist', item.id])"
+        [style]="{
+          'background-image': 'url(' + item.images[1].url + ')',
+          'view-transition-name': 'transition-artist-'+ identifier + i
+        }"
+        class="square image artist"
+      ></div>
+      <div style="margin-top: 10px;">{{ item.name }}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type === 'playlist'">
+    <div class="item" *ngFor="let item of items;let i = index">
+      <div
+      class="square image"
+      (mouseover)="setAlbumTransitionName('transition-'+ identifier + i)"
+      (click)="select.emit(['/playlist', item.id])"
+      [style]="{
+        'background-image': 'url(' + item.images[0]?.url + ')',
+        'view-transition-name': 'transition-'+ identifier + i
+      }"
+      ></div>
+      {{ item.name }}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type === 'track'">
+    <div class="item" *ngFor="let item of items">
+      <div
+        class="square image"
+        [routerLink]="['/playlist', item.id]"
+        [style.backgroundImage]="'url(' + item.album.images[0].url + ')'"
+      ></div>
+      {{ item.name }}
+    </div>
+  </ng-container>
+</div>

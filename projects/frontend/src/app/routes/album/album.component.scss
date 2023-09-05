@@ -1,0 +1,44 @@
+
+
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.track-item {
+    display: flex;
+
+    .track-item_center {
+        margin-left: 30px;
+        flex: 1;
+    }
+}
+
+.album-image {
+    view-transition-name: var(--album-shared-transition);
+}
+
+
+.track-grid {
+    height: 55px;
+    border-radius: 6px;
+    grid-gap: 16px;
+    display: grid;
+    padding: 0 16px;
+    color: #aeaeae;
+    grid-template-columns: [index] 16px [first] 4fr [last] minmax(120px,1fr);
+
+    .cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &:hover {
+        background: #000;
+    }
+    &:nth-child(odd) {
+        background: #232323;
+    }
+}

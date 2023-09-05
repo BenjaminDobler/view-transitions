@@ -1,0 +1,20 @@
+<div *ngIf="store.playlist | async as playlist">
+    <img class="playlist-header-img" [src]="playlist.images[0].url" />
+  <div
+    class="track-grid"
+    (click)="store.playTrack2(item.track.id)"
+    *ngFor="let item of playlist.tracks.items;let i = index"
+  >
+    <div class="cell">
+      {{i+1}}.
+    </div>
+    <div class="cell">
+      <img [src]="item.track?.album.images[0].url" />
+    </div>
+    <div class="cell track-item_center">
+      <div>{{ item.track?.name }}</div>
+      <div>{{ item.track?.album?.artists[0].name }}</div>
+    </div>
+    <div class="cell">{{ item.track?.duration_ms }}</div>
+  </div>
+</div>
