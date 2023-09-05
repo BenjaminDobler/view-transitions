@@ -60,7 +60,7 @@ export class StoreService {
 
   async init() {
     let scopes = ['user-read-private', 'user-read-email', 'streaming'];
-    let redirectUri = 'http://localhost:4200/login-redirect/';
+    let redirectUri = location.href;
 
     const implicitGrantStrategy = new AuthorizationCodeWithPKCEStrategy(
       this.client_id,
